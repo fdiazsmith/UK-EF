@@ -10,8 +10,8 @@ if [ ! -d ~/.vim_swp ]; then
   mkdir ~/.vim_swp
 fi
 
-#echo "Creating vim symlinks"
-#ln -nsf "$PWD"/vimrc ~/.vimrc
+echo "Creating vim symlinks"
+ln -nsf "$PWD"/vimrc ~/.vimrc
 #ln -nsf "$PWD"/vim ~/.vim
 
 if [ -d vim/bundle ]; then
