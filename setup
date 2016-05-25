@@ -10,9 +10,9 @@ if [ ! -d ~/.vim_swp ]; then
   mkdir ~/.vim_swp
 fi
 
-echo "Creating vim symlinks"
-ln -nsf "$PWD"/vimrc ~/.vimrc
-ln -nsf "$PWD"/vim ~/.vim
+#echo "Creating vim symlinks"
+#ln -nsf "$PWD"/vimrc ~/.vimrc
+#ln -nsf "$PWD"/vim ~/.vim
 
 if [ -d vim/bundle ]; then
   echo "Cleaning bundle directory."
@@ -24,10 +24,10 @@ if [ ! -d vim/bundle ]; then
   mkdir vim/bundle
 fi
 
-echo "Cloning neobundle into bundle directory"
-git clone https://github.com/Shougo/neobundle.vim vim/bundle/neobundle.vim
+echo "Downloading dein.vim installer"
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 
 echo "Installing bundles"
-vim/bundle/neobundle.vim/bin/neoinstall
+sh ./installer.sh ~/vim/bundle/
 
 echo "Vim setup is complete"
