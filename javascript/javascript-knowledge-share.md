@@ -23,7 +23,7 @@ Eventually a standard was agreed upon.
   * TONS of libraries. Sometimes way to many
 * Cross platform compatibility; tons of devices will run it.
 * Share-ability; your code becomes immediately available to millions!
-* **Atwood's Law:** *any application that can be written in JavaScript, will eventually be written in JavaScript.*
+* [**Atwood's Law:**](https://blog.codinghorror.com/the-principle-of-least-power/) *any application that can be written in JavaScript, will eventually be written in JavaScript.*
 * * [take a peak](https://www.reddit.com/r/atwoodslaw/)
 
 If you want to know more, check out [JavaScript the good parts](http://bdcampbell.net/javascript/book/javascript_the_good_parts.pdf)
@@ -33,28 +33,29 @@ If you want to know more, check out [JavaScript the good parts](http://bdcampbel
 # Vars
 Variable, **OMG** they are lizzards, or octopi. They change to anything.
 Js is also a VERY loosly typed language.
+
+js uses dynamic typing: that means it can be any type and js will figure out how to treat it.
+
+
+
 ```JavaScript
+//primitive types
 var foo = 12;
-console.log( typeof foo) //outpust "number"
-var bar = "ref";   console.log( typeof bar) //outpust "string"
-  var wup = {}
-console.log( typeof wup) //outpust "objects"
+var bar = "ref";
+var wot = false;
+var myNull = null;
+var myUndefined = undefined;
+//object type
+var wup = {}
+// Array object type
 var oru = []
-// notice I am very inconsistent semicolons and spaces. It don't matter!
-// >:| except it does so don't ever ever do that and take pride in your craft.
+// function type
+// Global variable
+var zuf = function(){} // They are non static and can be easily overwritten to anything!
+// Custom constucted
+var ball = new Ball();
 
-
-
-console.log( typeof oru)
-/* outputs "object" – this is an array, but in javascript and array is an object.
-Well actually everything is an object is javascript.
-But we will get to that later.
-*/
-
-foo = function(a){return a*4} // They are non static and can be easily overwritten to anything!
-
-
-// you don't even need to name'em.
+// you don't even need to declare the type.
 rur = 12.4 + "px";
 
 // Now lets say your applications is some sort of animations, as so often they are.
@@ -70,6 +71,19 @@ All of these are global variable and anything has access to it and can overwrite
 */
 
 ```
+
+There is two big categories.
+* 1 primitive: they are immutable. They cannot be changed. can only be reassigned
+* 2 objects:
+
+```
+someString = "ror";
+someString[0] // outputs 'r'
+someString[0] = 'p';
+someString// outputs 'ror' => because it is immutable
+```
+
+
 Global namescpace pollution can be avoided with closures. More on that later.
 
 # Objects
@@ -79,8 +93,20 @@ Global namescpace pollution can be avoided with closures. More on that later.
 * What about *this*
 * Value and reference assignment
 
+Objects are reference assignment.
 
-What and object is actually is.
+```javascript
+foo = 22;
+bar = foo;
+foo = foo*2;
+console.log(foo,bar) //PAM! Assigment by values; the value is copies and they are separate
+
+puf = {}
+tof = puf;
+puf.foo = 4;
+console.log(puf, tof) they both have foo! Because it is by Reference!
+```
+
 We said earlier that everything in js is an object. lets prove that really quickly
 
 
